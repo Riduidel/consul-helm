@@ -1,7 +1,11 @@
 # Consul Helm Chart
 
-This repository contains the official HashiCorp Helm chart for installing
-and configuring Consul on Kubernetes. This chart supports multiple use
+This repository DOES NOT contains the official HashiCorp Helm chart for installing
+and configuring Consul on Kubernetes. 
+
+But Instead, it allows deployment of Consul in OpenShift, which has slightly more restrictive security policies. Detail of modifications will be present in [Running in OpenShift](#running-in-openshift)
+
+This chart supports multiple use
 cases of Consul on Kubernetes depending on the values provided.
 
 For full documentation on this Helm chart along with all the ways you can
@@ -65,3 +69,8 @@ that can be used to quickly bring up a GKE cluster and configure
 `kubectl` and `helm` locally. This can be used to quickly spin up a test
 cluster for acceptance tests. Unit tests _do not_ require a running Kubernetes
 cluster.
+
+## Running in OpenShift
+
+OpenShift requires no container to run as root.
+As a consequence, all containers have a `runAsUser` security configuration applied.
